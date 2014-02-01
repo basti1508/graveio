@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130201164319) do
+ActiveRecord::Schema.define(version: 20140201140201) do
 
   create_table "comments", force: true do |t|
     t.string   "commenter"
@@ -42,6 +42,13 @@ ActiveRecord::Schema.define(version: 20130201164319) do
 
   add_index "linecomments", ["post_id"], name: "index_linecomments_on_post_id"
 
+  create_table "post_tags", force: true do |t|
+    t.integer  "post_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "content"
@@ -51,6 +58,12 @@ ActiveRecord::Schema.define(version: 20130201164319) do
     t.boolean  "newest",       default: true
     t.integer  "parent_id"
     t.string   "content_type", default: "None"
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
