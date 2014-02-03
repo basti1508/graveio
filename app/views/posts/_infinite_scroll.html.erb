@@ -1,0 +1,7 @@
+<% unless @posts.blank?%>
+  <div class="list row endless_scroll_inner_wrap"
+    last="<%=@posts.to_a.last.created_at%>">
+    <%=render :partial => "/posts/post", :collection => @posts%>
+    <div id="infinite-scroll"></div>
+  </div>
+<% end %>

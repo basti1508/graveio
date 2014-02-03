@@ -1,0 +1,6 @@
+<h3>Listing posts for "<%= @user.email %>"</h3>
+<% unless @posts.blank?%>
+  <div class="row">
+    <%=render :partial => "/posts/post", :collection => @posts%>
+  </div>
+<% end %>

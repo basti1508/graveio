@@ -18,8 +18,17 @@
           </li>
           <li>
             <% if user_signed_in? %>
+              <%= link_to current_user.email, {
+                :controller => "users/registrations",
+                :action => :posts,
+                :user_id => current_user.id
+                }%>
+            <% end %>
+          </li>
+          <li>
+            <% if user_signed_in? %>
               <%= link_to destroy_user_session_path, :method => :delete do %>
-                <i class="icon-off"></i> <%= current_user.email %>
+                <i class="icon-off"></i>
               <% end %>
             <% else %>
               <%= link_to new_user_session_path do %>
