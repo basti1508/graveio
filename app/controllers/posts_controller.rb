@@ -61,7 +61,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        @post.inputtags.split(' ').each do |t|
+        @post.inputtags.split(',').each do |t|
           @post.link_tag(t)
         end
         format.html {
@@ -94,7 +94,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if save_success
         old_tags = old_post.tags.pluck(:name)
-        new_tags = @post.inputtags.split(' ')
+        new_tags = @post.inputtags.split(',')
 
         # look for tags to be deleted
         tag_diff = old_tags - new_tags
