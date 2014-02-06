@@ -33,3 +33,9 @@ post_<%= number %>:
   parent_id: <%= number == 101 ? nil : number - 1 %>
   newest: <%= number == 101 ? true : false %>
 <% end %>
+
+three:
+  id: 107
+  title: author_test
+  content: bla bla bla
+  author: kmerz@github.com
